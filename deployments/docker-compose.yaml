@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  backend:
+    build:
+      context: ../backend
+    ports:
+     - "5000:5000"
+    volumes:
+      - ../backend:/backend
+    networks:
+      - dishes
+    command: python main.py
+  frontend:
+    build:
+      context: ../frontend
+    ports:
+      - "4200:4200"
+      - '9876:9876'
+    volumes:
+      - ../frontend:/frontend
+    networks:
+      - dishes
+    command: ng serve --host 0.0.0.0 --port 4200 --poll=2000
+
+networks:
+  dishes:
+    name: dishes
+    driver: bridge
+    ipam:
+      driver: default

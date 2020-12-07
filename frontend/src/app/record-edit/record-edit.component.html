@@ -1,0 +1,16 @@
+<div *ngIf="record">
+    <h2>Record {{record.id}} Details</h2>
+    <div><span>Id: </span>{{record.id}}</div>
+    <div>
+      <p>
+          Value: <input [(ngModel)]="record.value" placeholder="Record Value" type="number">
+      </p>
+      <p>
+          Timestamp: <input [(ngModel)]="record.timestamp" placeholder="Record Timestamp" type="datetime">
+          <small>Format: '%Y-%m-%dT%H:%M:%S'. Example: 2020-12-07T10:00:00</small><br><br>
+      </p>
+    </div>  
+    <button (click)="goBack()">go back</button>
+     
+    <button (click)="save()">save</button>
+  </div>

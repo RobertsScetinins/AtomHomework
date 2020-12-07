@@ -1,0 +1,26 @@
+<h3>Records</h3>
+<div>
+	<a routerLink="/add">
+		Add New Record
+	</a>
+</div>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Value</th>
+    <th>Timestamp</th>
+  </tr>
+  <tr *ngFor="let record of records">
+    <td>{{record.id}}</td>
+    <td>{{record.value}}</td>
+    <td>{{record.timestamp}}</td>
+	<td>
+		<a routerLink="{{record.id}}/detail">Detail</a>
+		 
+		<a routerLink="{{record.id}}/edit">Edit</a>
+		 
+		<button title="delete record" (click)="delete(record)">x</button>
+	</td>
+  </tr>
+</table>
+<button (click)="goBack()">go back</button>

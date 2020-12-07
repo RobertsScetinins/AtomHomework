@@ -1,0 +1,15 @@
+<div *ngIf="statistics">
+    <h2>Records Statistics</h2>
+    <div>
+      <p>
+          Total Readings: {{statistics.total_readings}}
+      </p>
+      <p>
+          Readings Mean: {{statistics.readings_mean}}
+      </p>
+      <p>
+        Readings Variance: {{statistics.readings_variance}}
+      </p>
+    </div>
+    <button (click)="goBack()">go back</button>
+</div>

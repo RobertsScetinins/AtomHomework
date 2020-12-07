@@ -1,0 +1,24 @@
+<div>
+    <h2>Add Record</h2>
+    <div>
+      <p>
+          <label>Id:
+              <input type="number" [(ngModel)]="record.id" placeholder="Record id"/>
+          </label>
+      </p>
+      <p>
+          <label>Value:
+              <input type="number" [(ngModel)]="record.value" placeholder="Record value"/>
+          </label>
+      </p>
+      <p>
+          <label>Timestamp:
+              <input type="datetime" [(ngModel)]="record.timestamp" placeholder="Record timestamp"/>
+              <small>Format: '%Y-%m-%dT%H:%M:%S'. Example: 2020-12-07T10:00:00</small><br><br>
+          </label>
+      </p>
+    </div>
+    <button (click)="goBack()">go back</button>
+     
+    <button (click)="save()">save</button>
+  </div>
