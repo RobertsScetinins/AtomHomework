@@ -1,16 +1,19 @@
-FROM node:alpine
-RUN apk update && apk add --no-cache make git
+FROM node:14.15.1-buster-slim
 
-WORKDIR /frontend
+RUN mkdir /build-dir
+WORKDIR /build-dir
+COPY package.json /build-dir
+RUN npm i npm@latest -g && \
+    npm install -g @angular/cli@11.0.3
+RUN npm install
 
-COPY package.json package-lock.json /frontend/
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+RUN ln -s /build-dir/node_modules node_modules
 
-RUN npm install -g @angular/cli@11.0.3
+# Bundle app source
+COPY . /usr/src/app
 
-RUN chown -R node /frontend
-
-WORKDIR /frontend
-
-USER node
-
-RUN npm install     
+EXPOSE 1234
+CMD [ "npm", "start" ]
