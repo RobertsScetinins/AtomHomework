@@ -1,4 +1,3 @@
-Sorry for poor functionality.
 Small app with records and dynamic statistic of REST API calls.
 
 To start service in docker compose should be completed:
